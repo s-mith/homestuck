@@ -1,0 +1,16 @@
+{
+  "name": "homestuck",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "next": "^13.4.9",
+    "tailwindcss": "^3.3.2"
+  }
+}
