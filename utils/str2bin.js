@@ -10,6 +10,7 @@ const str2bin = (str) => {
     }
     // convert the array of numbers to an array of 6 bit binary strings
     const binaryArray = codeArray.map(num => num.toString(2).padStart(6, '0'));
+    console.log(binaryArray);
     // combine the 6 bit binary strings into a single 48 bit binary string
     const binaryString = binaryArray.join('');
 

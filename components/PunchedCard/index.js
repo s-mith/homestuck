@@ -26,7 +26,8 @@ const PunchedCard = ({ code }) => {
             </div>
         );
     }
-    const binaryStringArray = binaryString.match(/.{1,4}/g);
+    const binaryStringArray = binaryString.match(/.{1,1}/g);
+    console.log(binaryStringArray);
 
 
     return (
@@ -35,28 +36,26 @@ const PunchedCard = ({ code }) => {
             <div className="w-96 h-[29rem] bg-orange-500 flex justify-center items-center">
                 {/* 12 rows of 4 columns */}
                 <div className="grid grid-cols-4 gap-0 w-64 h-96 bg-white">
-                    {binaryStringArray.map((binaryString, index) => {
+                    {/* first column */}
+                    {/* make 4 collums */}
+                    { [1,2,3,4].map((bit, index) => {
                         return (
-                            // grid of 12 rows of 4 columns
-                            <div key={index} className="grid grid-rows-12 gap-0">
-                                {binaryString.split('').map((bit, index) => {
-                                    return (
-                                        // grid of 12 rows of 1 column
-                                        <div key={index} className="grid grid-rows-12 gap-0">
-                                            {bit === '1' ? (
-                                                // if the bit is 1, then show a rectangle
-                                                <div className="w-[80%] h-6 bg-black"></div>
-                                            ) : (
-                                                // if the bit is 0, then show nothing
-                                                <div className="w-[80%] h-6 transparent"></div>
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                                
-                </div>
-                        );
+                    <div className="flex flex-col justify-center items-center" key={index}>
+                        {/* 12 rows */}
+                        {binaryStringArray.slice(0+(12*index), 12+(12*index)).map((bit, index) => {
+                            if (bit === '1') {
+                                return (
+                                    <div className="w-[80%] h-4 m-2 bg-black" key={index}></div>
+                                );
+                            }
+                            return (
+                                <div className="w-[80%] h-4 m-2 bg-white" key={index}></div>
+                            );
+                        })}
+
+                    </div>)
                     })}
+                                    
 
             </div>
                 
